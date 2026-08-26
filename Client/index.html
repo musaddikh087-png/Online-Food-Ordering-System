@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Foodie delivers your favourite fresh food quickly to your door.">
+  <title>Foodie | Delicious Food Delivered Fast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Foodie home">Foodie<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a class="active" href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="pages/login.html">Login</a>
+        <a class="register-link" href="pages/register.html">Register</a>
+        <a class="cart-link" href="pages/cart.html" aria-label="Open cart">🛒 <span>Cart</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">🍲 Your favourite meal is just a click away</p>
+          <h1>Delicious Food,<br><span>Delivered Fast.</span></h1>
+          <p class="hero-text">From comforting local favourites to global cravings, enjoy freshly prepared food delivered straight to your doorstep.</p>
+          <a class="button button-primary" href="#menu">Order Now <span aria-hidden="true">→</span></a>
+          <div class="hero-stats" aria-label="Foodie service statistics">
+            <div><strong>10k+</strong><span>Happy customers</span></div>
+            <div><strong>30 min</strong><span>Average delivery</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-circle"></div>
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85" alt="Freshly made gourmet burger with fries" />
+          <div class="floating-card rating-card"><span>⭐</span><div><strong>4.9/5</strong><small>Customer rating</small></div></div>
+          <div class="floating-card delivery-card"><span>🛵</span><div><strong>Fast delivery</strong><small>At your doorstep</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food categories -->
+    <section class="section categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Explore our menu</p><h2 id="categories-title">What are you craving?</h2><a href="#menu">View all menu →</a></div>
+        <div class="category-grid">
+          <a href="#menu" class="category-card"><span>🍕</span><strong>Pizza</strong><small>12 items</small></a>
+          <a href="#menu" class="category-card"><span>🍔</span><strong>Burger</strong><small>10 items</small></a>
+          <a href="#menu" class="category-card"><span>🍗</span><strong>Chicken</strong><small>15 items</small></a>
+          <a href="#menu" class="category-card"><span>🍜</span><strong>Noodles</strong><small>8 items</small></a>
+          <a href="#menu" class="category-card"><span>🥤</span><strong>Drinks</strong><small>14 items</small></a>
+          <a href="#menu" class="category-card"><span>🍰</span><strong>Dessert</strong><small>9 items</small></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular food cards -->
+    <section class="section popular-foods" id="menu" aria-labelledby="popular-title">
+      <div class="container">
+        <div class="section-heading centered"><p class="eyebrow">Customer favourites</p><h2 id="popular-title">Popular Foods</h2><p>Freshly prepared with ingredients you'll love.</p></div>
+        <div class="food-grid">
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Cheesy pepperoni pizza"><span>Popular</span></div><div class="food-info"><h3>Cheesy Pepperoni Pizza</h3><p>Loaded with pepperoni and stretchy mozzarella.</p><div class="food-bottom"><strong>৳ 650</strong><button class="add-cart" type="button" data-food="Cheesy Pepperoni Pizza">Add to Cart</button></div></div></article>
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Classic beef burger"><span>Best seller</span></div><div class="food-info"><h3>Classic Beef Burger</h3><p>Juicy beef patty, fresh lettuce and house sauce.</p><div class="food-bottom"><strong>৳ 320</strong><button class="add-cart" type="button" data-food="Classic Beef Burger">Add to Cart</button></div></div></article>
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=600&q=80" alt="Crispy fried chicken"><span>Hot</span></div><div class="food-info"><h3>Crispy Fried Chicken</h3><p>Golden, crunchy chicken with a spicy kick.</p><div class="food-bottom"><strong>৳ 420</strong><button class="add-cart" type="button" data-food="Crispy Fried Chicken">Add to Cart</button></div></div></article>
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80" alt="Chicken chow mein noodles"><span>Fresh</span></div><div class="food-info"><h3>Chicken Chow Mein</h3><p>Wok-tossed noodles with tender chicken and veg.</p><div class="food-bottom"><strong>৳ 280</strong><button class="add-cart" type="button" data-food="Chicken Chow Mein">Add to Cart</button></div></div></article>
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1534352956036-cd81e27dd615?auto=format&fit=crop&w=600&q=80" alt="Chocolate brownie with ice cream"><span>Sweet</span></div><div class="food-info"><h3>Chocolate Brownie</h3><p>Warm chocolate brownie served with ice cream.</p><div class="food-bottom"><strong>৳ 220</strong><button class="add-cart" type="button" data-food="Chocolate Brownie">Add to Cart</button></div></div></article>
+          <article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=600&q=80" alt="Refreshing mango smoothie"><span>Chilled</span></div><div class="food-info"><h3>Mango Smoothie</h3><p>A cool, creamy treat made with ripe mangoes.</p><div class="food-bottom"><strong>৳ 180</strong><button class="add-cart" type="button" data-food="Mango Smoothie">Add to Cart</button></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section class="section offers" aria-labelledby="offers-title"><div class="container"><div class="section-heading"><p class="eyebrow">Save more with Foodie</p><h2 id="offers-title">Special Offers</h2></div><div class="offer-grid"><article class="offer-card offer-orange"><div><p>For your first order</p><h3>20% OFF</h3><span>Use code: <strong>FOODIE20</strong></span></div><span class="offer-icon">🎁</span></article><article class="offer-card offer-dark"><div><p>On orders over ৳500</p><h3>Free Delivery</h3><span>Fresh food, no delivery fee</span></div><span class="offer-icon">🛵</span></article><article class="offer-card offer-yellow"><div><p>Every Friday</p><h3>Buy 1 Get 1</h3><span>On selected burgers</span></div><span class="offer-icon">🍔</span></article></div></div></section>
+
+    <!-- Benefits -->
+    <section class="section why-us" id="about" aria-labelledby="why-title"><div class="container"><div class="section-heading centered"><p class="eyebrow">Made for food lovers</p><h2 id="why-title">Why Choose Foodie?</h2></div><div class="benefit-grid"><article><span>⚡</span><h3>Fast Delivery</h3><p>Hot and fresh food at your door in no time.</p></article><article><span>🥬</span><h3>Fresh Food</h3><p>Prepared after you order with quality ingredients.</p></article><article><span>🏆</span><h3>Best Quality</h3><p>Delicious meals from trusted local kitchens.</p></article><article><span>📱</span><h3>Easy Ordering</h3><p>Browse, choose, and order in just a few clicks.</p></article></div></div></section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact"><div class="container footer-grid"><div><a class="brand" href="#home">Foodie<span>.</span></a><p>Making every meal a little more delicious, delivered with care.</p></div><div><h3>Quick Links</h3><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About Us</a><a href="#contact">Contact</a></div><div><h3>Contact Us:01344415465</h3><p>📍 tilagor point, Sylhet, Bangladesh</p><p>📞 +880 17122222222</p><p>✉️ hello@foodie.com</p></div></div><div class="copyright">© <span id="year"></span> Foodie. All rights reserved.</div></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="js/cart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
