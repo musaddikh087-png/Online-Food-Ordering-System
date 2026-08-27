@@ -1,6 +1,8 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
@@ -9,6 +11,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
+const clientDirectory = path.resolve(serverDirectory, '../Client');
 
 // Middleware
 app.use(cors());
@@ -28,6 +32,10 @@ app.use('/api', async (req, res, next) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
+
+// Serve the static site through the same serverless function. Vercel includes
+// this directory in the function bundle via vercel.json.
+app.use(express.static(clientDirectory));
 
 // Test route
 app.get('/', (req, res) => {
