@@ -1,14 +1,18 @@
 import mongoose from 'mongoose';
 
-// Connect to MongoDB using the URI stored in the environment.
+// Serverless functions may handle several requests in one process. Reuse the
+// existing connection instead of opening a new MongoDB connection per request.
 const connectDB = async () => {
-  try {
-    const connection = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB connected: ${connection.connection.host}`);
-  } catch (error) {
-    console.error(`MongoDB connection error: ${error.message}`);
-    process.exit(1);
+  if (mongoose.connection.readyState === 1) return mongoose.connection;
+
+  const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error('MONGO_URI is not configured.');
   }
+
+  const connection = await mongoose.connect(uri);
+  console.log(`MongoDB connected: ${connection.connection.host}`);
+  return connection;
 };
 
 export default connectDB;
