@@ -16,11 +16,24 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
   });
 });
 
-// Simple visual feedback only; this does not add items to a real cart.
+// Add food from the existing menu cards to the persistent cart.
 const toast = document.querySelector('.toast');
 document.querySelectorAll('.add-cart').forEach((button) => {
   button.addEventListener('click', () => {
-    toast.textContent = `${button.dataset.food} is ready to add to your cart!`;
+    const card = button.closest('.food-card');
+    const name = button.dataset.food;
+    const price = Number(card.querySelector('.food-bottom strong').textContent.replace(/[^0-9.]/g, ''));
+    const cart = FoodieCart.getCart();
+    const existingItem = cart.find((item) => item.name === name);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+
+    FoodieCart.saveCart(cart);
+    toast.textContent = `${name} added to your cart!`;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2500);
   });

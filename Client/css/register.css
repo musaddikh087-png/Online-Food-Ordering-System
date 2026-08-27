@@ -1,0 +1,19 @@
+/* Shared Foodie authentication page styles. */
+.auth-nav-links { display:flex; align-items:center; gap:22px; font-weight:700; color:#514b47; }
+.auth-nav-links a:hover { color:var(--primary); }
+.auth-page { min-height:calc(100vh - 77px); display:grid; place-items:center; padding:54px 20px; background:linear-gradient(120deg,#fff8f2 0%,#fffdfb 54%,#ffe6d7 100%); }
+.auth-card { width:min(100%,470px); padding:38px; background:var(--white); border:1px solid #f4e8e2; border-radius:14px; box-shadow:var(--shadow); }
+.auth-card h1 { margin:7px 0 8px; font-size:clamp(1.9rem,4vw,2.35rem); letter-spacing:-1px; }
+.auth-intro { margin-bottom:25px; color:var(--text); }
+.auth-form { display:grid; gap:8px; }
+.auth-form label { margin-top:7px; color:var(--dark); font-size:.9rem; font-weight:800; }
+.auth-form input { width:100%; padding:12px 13px; border:1px solid #e7d8d0; border-radius:7px; outline:none; color:var(--dark); font:inherit; transition:border-color .2s,box-shadow .2s; }
+.auth-form input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(244,102,38,.13); }
+.auth-form .button { justify-content:center; width:100%; margin-top:18px; border:0; }
+.form-message { margin-bottom:18px; padding:10px 12px; border-radius:7px; font-size:.9rem; font-weight:700; }
+.form-message.success { color:#176a3a; background:#e8f7ed; border:1px solid #b7e3c4; }
+.form-message.error { color:#a2261d; background:#fff0ed; border:1px solid #fac9c1; }
+.auth-switch { margin-top:22px; text-align:center; color:var(--text); font-size:.92rem; }
+.auth-switch a { color:var(--primary); font-weight:800; }
+.auth-switch a:hover { color:var(--primary-dark); }
+@media (max-width:620px) { .auth-nav-links { gap:14px; }.auth-card { padding:28px 22px; }.auth-page { min-height:calc(100vh - 67px); padding:35px 15px; } }

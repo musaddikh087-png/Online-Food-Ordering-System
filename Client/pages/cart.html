@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review the food items in your Foodie cart.">
+  <title>Foodie | Your Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="Foodie home">Foodie<span>.</span></a>
+      <a class="cart-link active" href="cart.html" aria-current="page">🛒 <span>Cart</span></a>
+    </nav>
+  </header>
+
+  <main class="cart-page">
+    <section class="container cart-section" aria-labelledby="cart-title">
+      <p class="eyebrow">Your order</p>
+      <h1 id="cart-title">Your Cart</h1>
+      <div id="cart-content" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer><div class="copyright">© <span id="year"></span> Foodie. All rights reserved.</div></footer>
+  <script src="../js/cart.js"></script>
+</body>
+</html>
