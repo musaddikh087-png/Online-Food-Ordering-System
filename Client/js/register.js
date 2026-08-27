@@ -27,7 +27,7 @@ if (registerForm) {
     registerButton.textContent = 'Creating account...';
 
     try {
-      const response = await fetch(window.FOODIE_API_CONFIG.endpoints.auth.register, {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
