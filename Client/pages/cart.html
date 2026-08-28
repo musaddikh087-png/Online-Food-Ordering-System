@@ -1,50 +1,33 @@
-const registerForm = document.getElementById('register-form');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review the food items in your Foodie cart.">
+  <title>Foodie | Your Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="Foodie home">Foodie<span>.</span></a>
+      <a class="cart-link active" href="cart.html" aria-current="page">🛒 <span>Cart</span></a>
+    </nav>
+  </header>
 
-if (registerForm) {
-  const message = document.getElementById('form-message');
-  const registerButton = document.getElementById('register-button');
+  <main class="cart-page">
+    <section class="container cart-section" aria-labelledby="cart-title">
+      <p class="eyebrow">Your order</p>
+      <h1 id="cart-title">Your Cart</h1>
+      <div id="cart-content" aria-live="polite"></div>
+    </section>
+  </main>
 
-  const showMessage = (text, type) => {
-    message.textContent = text;
-    message.className = `form-message ${type}`;
-    message.hidden = false;
-  };
-
-  registerForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const name = registerForm.elements.name.value.trim();
-    const email = registerForm.elements.email.value.trim();
-    const password = registerForm.elements.password.value;
-    const confirmPassword = registerForm.elements.confirmPassword.value;
-
-    if (password !== confirmPassword) {
-      showMessage('Passwords do not match.', 'error');
-      return;
-    }
-
-    registerButton.disabled = true;
-    registerButton.textContent = 'Creating account...';
-
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      });
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Registration failed. Please try again.');
-      }
-
-      showMessage(data.message || 'Registration successful. Redirecting to login...', 'success');
-      registerForm.reset();
-      window.setTimeout(() => { window.location.href = 'login.html'; }, 1200);
-    } catch (error) {
-      showMessage(error.message || 'Unable to reach the server. Please try again.', 'error');
-      registerButton.disabled = false;
-      registerButton.innerHTML = 'Create account <span aria-hidden="true">→</span>';
-    }
-  });
-}
+  <footer><div class="copyright">© <span id="year"></span> Foodie. All rights reserved.</div></footer>
+  <script src="../js/cart.js"></script>
+</body>
+</html>
