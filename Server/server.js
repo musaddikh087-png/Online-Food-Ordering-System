@@ -1,3 +1,4 @@
+```js
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -8,27 +9,25 @@ import orderRoutes from './routes/orderRoutes.js';
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 
 // Test route
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Foodie server is running!' });
 });
 
-// Connect to the database before accepting requests.
-const startServer = async () => {
-  await connectDB();
+// Connect to MongoDB
+connectDB().catch((error) => {
+  console.error('MongoDB connection error:', error);
+});
 
-  app.listen(PORT, () => {
-    console.log(`Foodie server is running on http://localhost:${PORT}`);
-  });
-};
-
-startServer();
+// Export app for Vercel
+export default app;
+```
