@@ -1,5 +1,5 @@
 const CART_KEY = 'foodieCart';
-const ORDER_API_URL = 'http://localhost:5000/api/orders';
+const ORDER_API_URL = window.FOODIE_API_CONFIG.endpoints.orders;
 const checkoutContent = document.querySelector('#checkout-content');
 let isSubmitting = false;
 

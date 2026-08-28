@@ -1,4 +1,4 @@
-const ORDERS_API_URL = 'http://localhost:5000/api/orders';
+const ORDERS_API_URL = window.FOODIE_API_CONFIG.endpoints.orders;
 const ordersContent = document.querySelector('#orders-content');
 
 function formatPrice(value) { const price = Number(value); return `৳ ${Number.isFinite(price) ? price.toLocaleString() : '0'}`; }
